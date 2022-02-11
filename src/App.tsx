@@ -20,6 +20,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import { Container, Typography } from '@mui/material';
 import { Header } from './components/navbar/Header';
+import BodyComponent from './components/Body';
 
 interface myArray {
   item: myObj
@@ -63,6 +64,7 @@ function App() {
         </Grid>
         <Grid item xs={matches ? 11 : 12}>
           <Header></Header>
+          <BodyComponent></BodyComponent>
         </Grid>
 
       </Grid>

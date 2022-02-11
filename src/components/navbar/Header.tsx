@@ -7,10 +7,10 @@ export const Header = () => {
             <Grid container spacing={2} >
                 <Grid item xs={12} sm={7}>
                     <Typography style={{ fontSize: "24px", fontWeight: 500 }}>
-                        Place List
+                        Place List {process.env.REACR_APP_API_KEY}
                     </Typography>
                 </Grid>
-                <Grid item xs={12} sm={5} spacing={2}>
+                <Grid item xs={12} sm={5} >
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
                         <Grid item xs={12} sm={4}>
                             <Select
