@@ -1,24 +1,12 @@
-import React, { ChangeEvent, useState } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import Navbar from './components/navbar/Navbar';
 import SideBar from './components/navbar/SideBar';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import List from '@mui/material/List';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import Drawer from '@mui/material/Drawer';
-import Paper from '@mui/material/Paper';
+
 import Grid from '@mui/material/Grid';
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import { makeStyles } from '@mui/styles';
 
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-import { Container, Typography } from '@mui/material';
 import { Header } from './components/navbar/Header';
 import BodyComponent from './components/Body';
 
@@ -32,15 +20,12 @@ interface myObj {
 }
 
 
-
-
-
 function App() {
   // const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
   return (
-    <div>
+    <>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <SideBar />
@@ -62,15 +47,16 @@ function App() {
             }}
           />
         </Grid>
-        <Grid item xs={matches ? 11 : 12}>
-          <Header></Header>
-          <BodyComponent></BodyComponent>
-        </Grid>
-
+        <Grid  item xs={matches ? 11 : 12} >
+          <Box sx={{ padding: '5px' }}>
+            <Box sx={{ marginTop: '10px' }}><Header></Header></Box>
+            <Box sx={{ marginTop: '20px' }}><BodyComponent></BodyComponent></Box>
+       </Box>
+          </Grid>
       </Grid>
 
 
-    </div>
+    </>
   );
 }
 

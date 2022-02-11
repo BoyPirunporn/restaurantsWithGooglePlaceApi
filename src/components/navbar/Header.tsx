@@ -26,7 +26,7 @@ export const Header = () => {
                                 <MenuItem value={30}>Thirty</MenuItem>
                             </Select>
                         </Grid>
-                        <Grid item xs={1} >
+                        <Grid item xs={12} sm={1}>
                             <Container>|</Container>
                         </Grid>
                         <Grid item xs={12} sm={7}>
