@@ -1,62 +1,27 @@
 import React from 'react';
 import './App.css';
-import SideBar from './components/navbar/SideBar';
+import SideBar from './navbar/SideBar';
 
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
-import { Header } from './components/navbar/Header';
-import BodyComponent from './components/Body';
-
-interface myArray {
-  item: myObj
-}
-interface myObj {
-  _name: string,
-  _age: number,
-  _isAuth: boolean,
-}
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import HomeScreen from './Screen/HomeScreen';
+import RestaurentsDetail from './Screen/RestaurentsDetail';
+import { Box } from '@mui/material';
+import { MediaQueryScreen } from './constant/MediaQuery';
+import { useTheme, createTheme,ThemeProvider } from '@mui/material/styles';
 
 function App() {
-  // const classes = useStyles();
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up('sm'));
+ const theme = useTheme()
+ 
   return (
-    <>
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <SideBar />
-        </Grid>
-        <Grid item xs={1} >
-          <Box
-            position={'absolute'}
-            left={'0%'}
-            right={'0%'}
-            top={'0%'}
-            bottom={'0%'}
-            display={matches ? 'block' : 'none'}
-            sx={{
-              width: '90px',
-              height: '1456px',
-              backgroundColor: '#FFFFFF',
-              boxShadow: "0px 10px 10px rgba(0, 0, 0, 0.25)",
-              borderRadius: '0px 50px 50px 0px;'
-            }}
-          />
-        </Grid>
-        <Grid  item xs={matches ? 11 : 12} >
-          <Box sx={{ padding: '5px' }}>
-            <Box sx={{ marginTop: '10px' }}><Header></Header></Box>
-            <Box sx={{ marginTop: '20px' }}><BodyComponent></BodyComponent></Box>
-       </Box>
-          </Grid>
-      </Grid>
-
-
-    </>
+    <Router>
+      <SideBar />
+      <Box sx={{ marginTop: 3, paddingLeft: MediaQueryScreen(theme) ? '120px' : '13px', paddingRight: MediaQueryScreen(theme) ? '35px' : '13px',  }}>
+        <Routes>
+          <Route path='/' element={<HomeScreen />} />
+          <Route path='/detail/:id' element={<RestaurentsDetail />} />
+        </Routes>
+    </Box>
+    </Router>
   );
 }
 
