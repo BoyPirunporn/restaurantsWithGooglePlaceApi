@@ -1,14 +1,19 @@
-import { Box, Button, Grid, Card, CardMedia, CardContent, Typography, CardActions, ImageList, ImageListItem } from '@mui/material'
-import React, { useState,useEffect } from 'react'
+import { Box, Button, Grid, useTheme, } from '@mui/material'
+import React from 'react'
 import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
-import { makeStyles } from '@mui/styles';
+import { makeStyles, } from '@mui/styles';
 import { useNavigate, useParams } from 'react-router-dom';
 import data from '../example_data.json';
-import { DataObject, OperationTime } from '../model/place'
+import { DataObject } from '../model/place'
+import TabsUnstyled from '@mui/base/TabsUnstyled';
+import DetailLeft from '../components/detailComponent/DetailLeft';
+import { Theme } from '@mui/system';
+import DetailRight from '../components/detailComponent/DetailRight';
+import { Tab, TabPanel, TabsList } from '../components/TapListComponent/TapElements';
+import { MediaQueryScreen } from '../constant/MediaQuery';
+import { useSelector } from 'react-redux';
 
-
-
-const useChipStyles = makeStyles({
+const useChipStyles = makeStyles((theme: Theme) => ({
   chip: {
     "&:hover": {
       backgroundColor: '#134B8A'
@@ -17,104 +22,71 @@ const useChipStyles = makeStyles({
   Container: {
     marginTop: '25px !important',
     height: 'auto',
+    display: 'block',
     backgroundColor: '#C4D3E9',
-    borderRadius: '10px'
+    borderRadius: '10px',
+    [theme.breakpoints.down('md')]: {
+      background: 'none',
+      display: 'none'
+    },
   },
   boxSt: {
     padding: '20px'
   },
   pText: {
     fontSize: '16px',
-    fontWeight: '600'
-  }
-});
+    fontWeight: '600',
+  },
+  hiden: {
+    display: 'none'
+  },
+
+}));
+
+
 
 const RestaurentsDetail = () => {
   const style = useChipStyles()
   const navigation = useNavigate()
   const param = useParams()
-  const detailData:any = data.find((item: DataObject) => item.id === Number(param.id))
-  console.log(detailData)
-  
+  const [value, setValue] = React.useState('1');
+  const { loading, error, restaurant } = useSelector((state: any) => state.Restaurant)
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setValue(newValue);
+  };
+  const detailData: DataObject | any = restaurant?.find((item: DataObject) => item.id === Number(param.id) || item.id === param.id)
+  if (!detailData) {
+    navigation('/')
+  }
   return (
     <Box >
       <Button onClick={() => navigation('/')} className={style.chip} variant="contained" startIcon={<ArrowBackIosRoundedIcon />} sx={{ borderRadius: 30, backgroundColor: '#134B8A', color: '#fff', fontWeight: 600 }} >
         Back
       </Button>
 
+      <Box sx={{
+        display: MediaQueryScreen(useTheme()) ? 'none' : 'flex',
+        justifyContent: 'center',
+        borderRadius: 50,
+        marginTop: 3,
+      }}>
+        <TabsUnstyled defaultValue={0}  >
+          <TabsList>
+            <Tab style={{ textTransform: 'uppercase', }}>Information</Tab>
+            <Tab style={{ textTransform: 'uppercase', }}>Image</Tab>
+          </TabsList>
+          <TabPanel value={0}><DetailLeft detailData={detailData} /></TabPanel>
+          <TabPanel value={1}><DetailRight detailData={detailData} /></TabPanel>
+        </TabsUnstyled>
+      </Box>
       <Box className={style.Container}>
         <Box className={style.boxSt}>
           <Grid container spacing={6} >
-            <Grid item sm={6}  >
-              <Card >
-                <CardMedia
-                  component="img"
-                  height="350"
-                  image={`${detailData?.profile_image_url}`}
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Box >
-                    <Typography fontWeight={'600'} variant="h5" component="div">
-                      {detailData?.name}
-                    </Typography>
-                  </Box>
-                  <Box mt={2}>
-                    <Grid container spacing={6} >
-                      <Grid item sm={3}  >
-                        <Typography className={style.pText} component="div">
-                          Addredd :
-                        </Typography>
-                      </Grid>
-                      <Grid item sm={9}  >
-                        <Typography className={style.pText} component="div">
-                          {detailData?.address}
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </Box>
-                  <Box mt={2}>
-                    <Grid container spacing={6} >
-                      <Grid item sm={3}  >
-                        <Typography className={style.pText} component="div">
-                          Opening Hour :
-                        </Typography>
-                      </Grid>
-                      <Grid item sm={9}  >
-                        {
-                          detailData?.operation_time.map((item: OperationTime, index: number) => {
-                            return (
-                              <Typography key={index.toString()} className={style.pText} gutterBottom component="div">
-                                {item.day} : {item.time_open} AM - {item.time_close} PM
-                              </Typography>
-                            )
-                          })
-                        }
-                      </Grid>
-                    </Grid>
-                  </Box>
-                </CardContent>
-              </Card>
+            <Grid item sm={12} md={6}   >
+              <DetailLeft detailData={detailData} />
             </Grid>
-            <Grid item sm={6}>
-              <Card >
-                <CardContent>
-                  <Typography gutterBottom variant="h5" fontWeight={'600'} component="div">
-                    Image
-                  </Typography>
-                  <div style={{ flexDirection: 'column', display: 'flex', borderRadius: 30}}>
-                    {detailData?.images.map((image: string) => (
-                      <Box sx={{height:500}}>
-                        <img src={image} alt="" style={{
-                          width: '100%',
-                          height: 500,
-                          objectFit: 'cover',
-                        }}/>
-                      </Box>
-                    ))}
-                   </div>
-                </CardContent>
-              </Card>
+            <Grid item sm={12} md={6} >
+              <DetailRight detailData={detailData} />
             </Grid>
           </Grid>
         </Box>

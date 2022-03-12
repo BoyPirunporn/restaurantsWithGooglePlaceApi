@@ -18,7 +18,7 @@ export interface DetailRestaurant {
     }[]
 }
 export interface DataObject {
-    id?: number;
+    id?: number | string;
     name: string;
     categories: string[];
     profile_image_url: string;
@@ -26,7 +26,7 @@ export interface DataObject {
     operation_time: OperationTime[];
     address: string;
     rating: number;
-    place_id?:string;
+    place_id?: string;
 }
 export interface OperationTime {
     day?: string;

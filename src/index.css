@@ -7,4 +7,9 @@ body {
   background-color: #E5E5E5;
 }
 
+.css-jjs64a-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  background-color: #134B8A !important;
+  color: #fff !important;
+}
+
 

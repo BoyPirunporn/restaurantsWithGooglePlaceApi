@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { useTheme, createTheme, ThemeProvider } from '@mui/material/styles';
-
+import { Provider } from 'react-redux';
+import { store } from './Redux/Store';
 
 const theme = createTheme({
   typography: {
@@ -14,7 +15,9 @@ const theme = createTheme({
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')

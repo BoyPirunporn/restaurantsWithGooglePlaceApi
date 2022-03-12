@@ -5,10 +5,13 @@ import SearchIcon from '@mui/icons-material/Search';
 
 type Props = {
     handleChange:(text:string) => void;
+    handleClick:() => void;
     value:string;
     setValue:Dispatch<SetStateAction<string>>
+    setSearchText:Dispatch<SetStateAction<string>>
+    SearchText:string
 }
-export const Header: React.FC<Props> = ({ handleChange, value, setValue}) => {
+export const Header: React.FC<Props> = ({ handleChange, value, setValue, SearchText, setSearchText, handleClick}) => {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down('md'));
    
@@ -30,9 +33,9 @@ export const Header: React.FC<Props> = ({ handleChange, value, setValue}) => {
                                         inputProps={{ 'aria-label': 'Without label' }}
                                         onChange={(e) => handleChange(e.target.value)}
                                     >
-                                        <MenuItem value={'Restaurent'}>Restaurent</MenuItem>
-                                        <MenuItem value={'Bakery'}>Bakery</MenuItem>
-                                        <MenuItem value={'Cafe'}>Cafe</MenuItem>
+                                        <MenuItem value={'restaurant'}>Restaurent</MenuItem>
+                                        <MenuItem value={'bakery'}>Bakery</MenuItem>
+                                        <MenuItem value={'cafe'}>Cafe</MenuItem>
                                     </Select>
                                 </FormControl>
                             </Grid>
@@ -45,10 +48,12 @@ export const Header: React.FC<Props> = ({ handleChange, value, setValue}) => {
                                     sx={{display: 'flex', alignItems: 'center', width: '100%', borderRadius: 30, background: 'none', boxShadow: 'none', border: '1px solid #134B8A' }}
                                 >
                                     <InputBase
+                                        
                                         sx={{ ml: 1, flex: 1, border: '1px ', pl: '5px', width: '100%', }}
                                         placeholder="Search Name"
+                                        onChange={(e) => setSearchText(e.target.value)}
                                     />
-                                    <IconButton type="submit" sx={{ p: '10px' }} aria-label="search" onClick={() => {console.log('asdasd')}}>
+                                    <IconButton type="submit" sx={{ p: '10px' }} aria-label="search" onClick={handleClick} >
                                         <SearchIcon  />
                                     </IconButton>
                                 </Paper>
