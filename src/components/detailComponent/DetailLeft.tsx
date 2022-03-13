@@ -51,10 +51,7 @@ const DetailLeft: FC<Props> = ({ detailData }) => {
                             </Box>
                         </Grid>
                         <Grid item sm={12} md={8}  className={classed.textContainer}>
-                            <Box> <Typography sx={{
-                                // fontSize: '1.1rem',
-                                fontWeight: 'bold'
-                            }} component="div">
+                            <Box> <Typography component="div">
                                 {detailData?.address}
                             </Typography></Box>
                         </Grid>
@@ -74,7 +71,7 @@ const DetailLeft: FC<Props> = ({ detailData }) => {
                             {
                                 detailData?.operation_time.map((item: OperationTime, index: number) => {
                                     return (
-                                        <Typography key={index.toString()} sx={{fontWeight:'400'}} gutterBottom component="div">
+                                        <Typography key={index.toString()}  gutterBottom component="div">
                                             {item.day} : {item.time_open !== 'closed' && item.time_close !== 'close' ? `${item.time_close} AM - ${item.time_close } PM`:'Closed'} 
                                         </Typography>
                                     )

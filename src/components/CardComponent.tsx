@@ -129,7 +129,7 @@ const CardComponent: FC<Props> = ({ resturent, loading }) => {
                                                     variant="h6"
                                                     component="div"
                                                     className={style.hText}
-                                                    sx={{ fontWeight: '600', fontSize: '32px' }}>
+                                                    sx={{ fontWeight: '600', fontSize: '24px' }}>
                                                     {item.name}
                                                 </Typography>
                                             </Box>
