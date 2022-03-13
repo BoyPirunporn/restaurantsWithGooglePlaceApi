@@ -2,7 +2,7 @@ import { Alert, Box, Pagination, Stack, useMediaQuery, useTheme } from '@mui/mat
 import React, { useEffect, useState } from 'react'
 import CardComponent from '../components/CardComponent'
 import { DataObject, OperationTime } from '../model/place'
-import { Header } from '../navbar/Header'
+import { Header } from '../components/Header'
 import SideBar from '../navbar/SideBar'
 import data from '../example_data.json';
 import { MediaQueryScreen } from '../constant/MediaQuery'

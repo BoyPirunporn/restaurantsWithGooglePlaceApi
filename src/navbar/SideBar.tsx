@@ -26,14 +26,19 @@ const styles = makeStyles((theme: Theme) => ({
     },
     logoContainer: {
         alignItems: 'center',
-        display: 'flex'
+        display: 'flex',
+       
     },
     logoimg: {
         objectFit: 'cover',
         borderRadius: '8px',
         padding: '6px 0',
         height: '50px',
-        width: '50px'
+        width: '50px',
+        display:'none',
+        [theme.breakpoints.down('md')]: {
+            display: 'block'
+        }
     },
     boxToobar: {
         'display': 'flex',
