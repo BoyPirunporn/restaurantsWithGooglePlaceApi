@@ -41,8 +41,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     card: {
         background: '#FFFFFF',
-        boxShadow: '0px 3px 3px rgba(0, 0, 0, 0.25)',
-        borderRadius: '15px',
+        boxShadow: '0 3px 4px rgb(0 0 0 / 40%) !important',
+        borderRadius: '15px  !important',
         cursor: 'pointer',
         position: 'relative'
     }
@@ -83,7 +83,7 @@ const CardComponent: FC<Props> = ({ resturent, loading }) => {
         return open?.time_open !== 'closed'
             && open?.time_close !== 'closed'
             ? `${open?.time_open
-    } AM - ${open?.time_close} PM` : 'closed'
+    } AM - ${open?.time_close} PM` : 'Closed'
     }
     if (!resturent?.length) {
         return (
@@ -101,7 +101,7 @@ const CardComponent: FC<Props> = ({ resturent, loading }) => {
                     {resturent?.map((item) =>
                     (
                         <Grid key={item.id} item xs={12} md={6} sm={12} xl={4} >
-                            <Card className={style.card}
+                            <Card className={style.card} 
                                 onClick={() => navigation('/detail/' + item.id)}
                             >
                                 {!matches ? <CardMedia component="img"
