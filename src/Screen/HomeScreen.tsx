@@ -28,8 +28,7 @@ const HomeScreen = () => {
     setSearchText('')
     dispatch(actionRestaurantMock(val))
   }
-
-
+  
   const handleClick = () => {
     dispatch(actionSearchName(searchText))
   }
@@ -38,7 +37,7 @@ const HomeScreen = () => {
       setRestaurens(restaurant)
     }
 
-  }, [value])
+  }, [value, dispatch, restaurant])
   const indexOfLastPage = currentPage * itemPage
   const indexOfFirstPage = indexOfLastPage - itemPage
   const currentOfPage = Restaurens?.slice(indexOfFirstPage, indexOfLastPage)
@@ -52,7 +51,7 @@ const HomeScreen = () => {
         setSearchText={setSearchText}
         value={value}
         setValue={setvalue} />
-      {error ? <Alert sx={{ marginTop: 1 }} severity="error">{error}</Alert> : <></>}
+      {error ? <Alert sx={{ marginTop: 1 }} severity="error">{ error }</Alert> : <></>}
       <Box sx={{ marginTop: 3 }}>
         <Stack spacing={2}>
           <CardComponent loading={loading} resturent={currentOfPage} />

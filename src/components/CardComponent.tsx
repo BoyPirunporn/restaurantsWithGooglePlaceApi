@@ -25,8 +25,8 @@ const useStyles = makeStyles((theme: Theme) => ({
         display: 'flex', justifyContent: 'space-around', alignItems: 'center',
         [theme.breakpoints.down('md')]: {
             position: "absolute",
-            top: '130px',
-            left: "80%",
+            top: '137px',
+            left: "78%",
             borderRadius: '30px',
             background: '#134B8A',
             width: '70px',

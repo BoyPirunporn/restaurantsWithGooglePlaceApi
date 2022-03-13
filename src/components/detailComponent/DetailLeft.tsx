@@ -12,10 +12,10 @@ type Props = {
 const useStyles = makeStyles((theme: Theme) => ({
     textContainer: {
         [theme.breakpoints.down('sm')]: {
-            paddingTop: '2px !important'
+            paddingTop: '10px !important'
         },
         [theme.breakpoints.down('md')]: {
-            paddingTop: '2px !important'
+            paddingTop: '10px !important'
         },
     }
 

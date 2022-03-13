@@ -48,7 +48,7 @@ export const Header: React.FC<Props> = ({ handleChange, value, setValue, SearchT
                                     sx={{display: 'flex', alignItems: 'center', width: '100%', borderRadius: 30, background: 'none', boxShadow: 'none', border: '1px solid #134B8A' }}
                                 >
                                     <InputBase
-                                        
+                                        value={SearchText}
                                         sx={{ ml: 1, flex: 1, border: '1px ', pl: '5px', width: '100%', }}
                                         placeholder="Search Name"
                                         onChange={(e) => setSearchText(e.target.value)}
