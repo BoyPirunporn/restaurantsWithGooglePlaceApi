@@ -17,13 +17,13 @@ type Props = {
 const useStyles = makeStyles((theme: Theme) => ({
     hText: {
         fontSize: '32px',
-        [theme.breakpoints.down('sm')]: { // eslint-disable-line no-useless-computed-key
+        [theme.breakpoints.down('md')]: { // eslint-disable-line no-useless-computed-key
             fontSize: '24px'
         }
     },
     ratting: {
         display: 'flex', justifyContent: 'space-around', alignItems: 'center',
-        [theme.breakpoints.down('sm')]: {
+        [theme.breakpoints.down('md')]: {
             position: "absolute",
             top: '130px',
             left: "80%",
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     rattingText: {
         fontWeight: '500',
-        [theme.breakpoints.down('sm')]: {
+        [theme.breakpoints.down('md')]: {
             color: '#fff'
         }
     },
@@ -54,7 +54,7 @@ const CardComponent: FC<Props> = ({ resturent, loading }) => {
 
     const navigation = useNavigate()
     const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.up('sm'));
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
     const [openTime,setOpenTime] = React.useState<OperationTime|null>(null)
     const style = useStyles()
     const changeName = (num: number) => {
@@ -112,7 +112,7 @@ const CardComponent: FC<Props> = ({ resturent, loading }) => {
                                 /> : <></>}
                                 <CardContent>
                                     <Grid container spacing={2}>
-                                        <Grid item xs={12} sm={2}>
+                                        <Grid display={!matches ? 'none' : 'block'} item xs={12} sm={2}>
                                             {
                                                 matches ?
                                                     <CardMedia component="img"
