@@ -27,7 +27,7 @@ const DetailLeft: React.FC<Props> = ({ detailData }) => {
                 </Box>
                 <Box mt={2}>
                     <Grid container spacing={6}  >
-                        <Grid item sm={3}  >
+                        <Grid item sm={4}  >
                             <Box>
                                 <Typography sx={{
                                     fontSize: '16px',
@@ -37,7 +37,7 @@ const DetailLeft: React.FC<Props> = ({ detailData }) => {
                                 </Typography>
                             </Box>
                         </Grid>
-                        <Grid item sm={9}  >
+                        <Grid item sm={8}  >
                             <Box> <Typography sx={{
                                 fontSize: '16px',
                                 fontWeight: '400'
@@ -49,7 +49,7 @@ const DetailLeft: React.FC<Props> = ({ detailData }) => {
                 </Box>
                 <Box mt={2}>
                     <Grid container spacing={6} >
-                        <Grid item sm={3} >
+                        <Grid item sm={4} >
                             <Typography sx={{
                                 fontSize: '16px',
                                 fontWeight: 'bold',
@@ -57,7 +57,7 @@ const DetailLeft: React.FC<Props> = ({ detailData }) => {
                                 Opening Hour :
                             </Typography>
                         </Grid>
-                        <Grid item sm={9}  >
+                        <Grid item sm={8}  >
                             {
                                 detailData?.operation_time.map((item: OperationTime, index: number) => {
                                     return (
