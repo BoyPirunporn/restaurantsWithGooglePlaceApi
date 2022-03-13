@@ -12,7 +12,7 @@ type Props = {
 
 const DetailLeft: React.FC<Props> = ({ detailData }) => {
     return (
-        <Card sx={{ boxShadow: MediaQueryScreen(useTheme()) ? 'none' : '0 3px 4px rgb(0,0,0,0.4)' }}>
+        <Card sx={{ boxShadow: MediaQueryScreen(useTheme()) ? 'none' : '0 3px 4px rgb(0,0,0,0.4)' ,borderRadius:'10px'}}>
             {detailData?.profile_image_url ? <CardMedia
                 component="img"
                 height="350"
