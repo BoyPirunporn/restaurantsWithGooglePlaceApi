@@ -133,19 +133,20 @@ export default function SideBar() {
                     </Toolbar>
                 </AppBar>
             </Box>
-            <Box
-               className={classed.sideBar}
-            >
+            <Box className={classed.sideBar}>
                 <Box flexDirection={'column'} display={'flex'}>
                     <Box className={classed.logoSideBar}>
-                        <img src={logo} alt="" height={'50px'} width={'50px'} style={{ objectFit: 'cover' }} />
+                        <img
+                            src={logo}
+                            alt="logo"
+                            height={'50px'}
+                            width={'50px'}
+                            style={{ objectFit: 'cover' }} />
                     </Box>
                     <Box className={classed.iconSideBarContainer}>
-
                         <Box className={classed.iconSideBar}><ListIcon /></Box>
                         <Typography>Place</Typography>
                     </Box>
-
                 </Box>
             </Box>
         </Stack>

@@ -72,15 +72,13 @@ export const actionSearchName = (name: string) => (dispatch: Dispatch<ActionType
     dispatch({ type: 'REQUEST' })
     try {
         if (!name) {
-            dispatch({ type: 'FAIL', error: 'The store name you searched for was not found.' })
+            dispatch({ type: 'FAIL', error: 'Please enter your keyword for search' })
         } else {
             let result = data.filter((item: DataObject) => {
                 return item.name.replace(/\s/g, '').toLocaleLowerCase() === name.replace(/\s/g, '').toLocaleLowerCase()
             })
-            dispatch({ type: 'SUCCESS', payload: result })
+           dispatch({ type: 'SUCCESS', payload: result }) 
         }
-
-
     } catch (error) {
         dispatch({ type: 'FAIL', error: error })
 
