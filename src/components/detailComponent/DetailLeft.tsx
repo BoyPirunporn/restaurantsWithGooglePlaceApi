@@ -25,7 +25,7 @@ const DetailLeft: FC<Props> = ({ detailData }) => {
     const classed = useStyles()
 
     return (
-        <Card sx={{ boxShadow: MediaQueryScreen(useTheme()) ? 'none' : '0 5px 7px rgb(0,0,0,0.4)' ,borderRadius:'10px',marginBottom:'50px'}}>
+        <Card sx={{ boxShadow: MediaQueryScreen(useTheme()) ? 'none' : '0 5px 7px rgb(0,0,0,0.4)' ,borderRadius:'15px',marginBottom:'50px'}}>
             {detailData?.profile_image_url ? <CardMedia
                 component="img"
                 height="350"

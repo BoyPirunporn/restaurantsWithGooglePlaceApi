@@ -7,7 +7,7 @@ type Props = {
 }
 const DetailRight: React.FC<Props> = ({ detailData}) => {
   return (
-      <Card sx={{ boxShadow: MediaQueryScreen(useTheme()) ? 'none' : '0 5px 7px rgb(0,0,0,0.4) !important', marginBottom:'50px' }}>
+      <Card sx={{ boxShadow: MediaQueryScreen(useTheme()) ? 'none' : '0 5px 7px rgb(0,0,0,0.4) !important', marginBottom:'50px',borderRadius:'15px !important' }}>
           <CardContent>
               <Typography gutterBottom variant="h5" fontWeight={'600'} component="div">
                   Image
