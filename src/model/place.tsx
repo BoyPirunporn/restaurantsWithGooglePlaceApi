@@ -29,7 +29,7 @@ export interface DataObject {
     place_id?: string;
 }
 export interface OperationTime {
-    day?: string;
+    day: string;
     time_open?: string;
     time_close?: string;
 }

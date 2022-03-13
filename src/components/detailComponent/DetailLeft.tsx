@@ -26,12 +26,12 @@ const DetailLeft: React.FC<Props> = ({ detailData }) => {
                     </Typography>
                 </Box>
                 <Box mt={2}>
-                    <Grid container spacing={6} >
+                    <Grid container spacing={6}  >
                         <Grid item sm={3}  >
                             <Box>
                                 <Typography sx={{
                                     fontSize: '16px',
-                                    fontWeight: 'bold',
+                                    fontWeight: '600',
                                 }} component="div">
                                     Addredd :
                                 </Typography>

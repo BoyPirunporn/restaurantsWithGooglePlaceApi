@@ -65,7 +65,7 @@ const RestaurentsDetail = () => {
       </Button>
 
       <Box sx={{
-        display: MediaQueryScreen(useTheme()) ? 'none' : 'flex',
+        display: MediaQueryScreen(useTheme()) ? 'none' : 'block',
         justifyContent: 'center',
         borderRadius: 50,
         marginTop: 3,
@@ -82,7 +82,7 @@ const RestaurentsDetail = () => {
       <Box className={style.Container}>
         <Box className={style.boxSt}>
           <Grid container spacing={6} >
-            <Grid item sm={12} md={6}   >
+            <Grid item sm={12} md={6}  >
               <DetailLeft detailData={detailData} />
             </Grid>
             <Grid item sm={12} md={6} >

@@ -1,7 +1,7 @@
-import { Box, Pagination, Stack, useMediaQuery, useTheme } from '@mui/material'
+import { Alert, Box, Pagination, Stack, useMediaQuery, useTheme } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import CardComponent from '../components/CardComponent'
-import { DataObject } from '../model/place'
+import { DataObject, OperationTime } from '../model/place'
 import { Header } from '../navbar/Header'
 import SideBar from '../navbar/SideBar'
 import data from '../example_data.json';
@@ -19,7 +19,7 @@ const HomeScreen = () => {
   const [searchText, setSearchText] = useState<string>('')
 
   const [currentPage, setCurrentPage] = useState<number>(1)
-  const [itemPage] = useState<number>(20)
+  const [itemPage] = useState<number>(9)
 
   const dispatch = useDispatch()
   const { loading, error, restaurant } = useSelector((state: any) => state.Restaurant)
@@ -28,17 +28,17 @@ const HomeScreen = () => {
     setSearchText('')
     dispatch(actionRestaurantMock(val))
   }
+  
+    
   const handleClick = () => {
-   
     dispatch(actionSearchName(searchText))
   }
-
   useEffect(() => {
     if (restaurant !== undefined) {
       setRestaurens(restaurant)
     }
 
-  }, [value, dispatch,restaurant])
+  }, [value, dispatch, restaurant])
   const indexOfLastPage = currentPage * itemPage
   const indexOfFirstPage = indexOfLastPage - itemPage
   const currentOfPage = Restaurens?.slice(indexOfFirstPage, indexOfLastPage)
@@ -52,6 +52,7 @@ const HomeScreen = () => {
         setSearchText={setSearchText}
         value={value}
         setValue={setvalue} />
+      {error ? <Alert sx={{ marginTop: 1 }} severity="error">Please enter the name of the information you wish to search for </Alert> : <></>}
       <Box sx={{ marginTop: 3 }}>
         <Stack spacing={2}>
           <CardComponent loading={loading} resturent={currentOfPage} />

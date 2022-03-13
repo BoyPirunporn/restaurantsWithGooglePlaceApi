@@ -30,7 +30,7 @@ const styles = makeStyles((theme: Theme) => ({
     },
     logoimg: {
         objectFit: 'cover',
-        borderRadius: '17px',
+        borderRadius: '8px',
         padding: '6px 0',
         height: '50px',
         width: '50px'
