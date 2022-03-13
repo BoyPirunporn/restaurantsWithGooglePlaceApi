@@ -44,3 +44,8 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## START PROJECT
+clone project on github และ ###`npm install` เพื่อติดตั้ง package ที่จำเป็น จากนั้น Run คำสั่ง ###`npm start`
+เพื่อเปิด project
+ในการค้นหา จะมีหลักๆ สองส่วน คือ ค้นหาด้วย type และ name
