@@ -52,7 +52,7 @@ const HomeScreen = () => {
         setSearchText={setSearchText}
         value={value}
         setValue={setvalue} />
-      {error ? <Alert sx={{ marginTop: 1 }} severity="error">Please enter the name of the information you wish to search for </Alert> : <></>}
+      {error ? <Alert sx={{ marginTop: 1 }} severity="error">{ error }</Alert> : <></>}
       <Box sx={{ marginTop: 3 }}>
         <Stack spacing={2}>
           <CardComponent loading={loading} resturent={currentOfPage} />
