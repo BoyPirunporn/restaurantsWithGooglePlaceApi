@@ -15,6 +15,11 @@ import logo from '../image/logo.png'
 import { makeStyles } from '@mui/styles';
 
 const styles = makeStyles((theme: Theme) => ({
+    root: {
+        position: 'sticky',
+        top: 0,
+        zIndex:100
+    },
     appbar: {
         position: "static",
         bgcolor: "#134B8A",
@@ -27,7 +32,7 @@ const styles = makeStyles((theme: Theme) => ({
     logoContainer: {
         alignItems: 'center',
         display: 'flex',
-       
+
     },
     logoimg: {
         objectFit: 'cover',
@@ -35,7 +40,7 @@ const styles = makeStyles((theme: Theme) => ({
         padding: '6px 0',
         height: '50px',
         width: '50px',
-        display:'none',
+        display: 'none',
         [theme.breakpoints.down('md')]: {
             display: 'block'
         }
@@ -100,16 +105,16 @@ const styles = makeStyles((theme: Theme) => ({
     }
 }))
 
-export default function SideBar() {
+export default function NavBar() {
     const theme = useTheme()
     const classed = styles()
     return (
-        <Stack>
-            <Box sx={{ flexGrow: 1 }}>
+        <Box className={classed.root}>
+            <Box >
                 <AppBar position="static" sx={{ bgcolor: "#134B8A", }} >
                     <Toolbar className={classed.toolbar} >
                         <Box className={classed.logoContainer} >
-                            <img src={logo} alt=""  className={classed.logoimg}  />
+                            <img src={logo} alt="" className={classed.logoimg} />
                         </Box>
                         <Box className={classed.boxToobar} >
                             <Box className={classed.notificationsIcon} mr={2}>
@@ -117,7 +122,7 @@ export default function SideBar() {
                                     <NotificationsIcon />
                                 </Box>
                                 <Box className={classed.notificationsCircle} >
-                                    <CircleIcon sx={{color:'red' , width:'15px'}}  />
+                                    <CircleIcon sx={{ color: 'red', width: '15px' }} />
                                 </Box>
                             </Box>
                             <Box sx={{ mr: MediaQueryScreen(theme) ? 2 : 0, }}>
@@ -126,7 +131,7 @@ export default function SideBar() {
                             <Box sx={{ mr: 2, display: MediaQueryScreen(theme) ? 'block' : 'none' }}>
                                 <Typography>Place</Typography>
                             </Box>
-                            <Box sx={{ mr: 2, display: MediaQueryScreen(theme) ? 'block' : 'none'}}>
+                            <Box sx={{ mr: 2, display: MediaQueryScreen(theme) ? 'block' : 'none' }}>
                                 <KeyboardArrowDown />
                             </Box>
                         </Box>
@@ -149,6 +154,6 @@ export default function SideBar() {
                     </Box>
                 </Box>
             </Box>
-        </Stack>
+        </Box>
     );
 }

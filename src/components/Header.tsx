@@ -16,7 +16,7 @@ export const Header: React.FC<Props> = ({ handleChange, value, setValue, SearchT
     const matches = useMediaQuery(theme.breakpoints.down('md'));
    
     return (
-        <>
+        <Box >
             <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                 <Grid item xs={12} md={8}>
                     <Typography variant={matches ? 'h4' : 'h6'} style={{ fontWeight: '600' }} >Place List</Typography>
@@ -62,6 +62,6 @@ export const Header: React.FC<Props> = ({ handleChange, value, setValue, SearchT
                     </Box>
                 </Grid>
             </Grid>
-        </>
+        </Box>
     )
 }
