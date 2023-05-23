@@ -6,7 +6,7 @@ import './index.css';
 import App from './App';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Provider } from 'react-redux';
-import { store } from './Redux/Store';
+import store from './Redux/Store';
 
 const theme = createTheme({
   typography: {

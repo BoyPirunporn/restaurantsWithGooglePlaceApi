@@ -1,14 +1,14 @@
 import { Card, CardContent, Grid, Typography, Box, CardMedia, CircularProgress, Theme } from '@mui/material'
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { DataObject, OperationTime } from '../model/place'
 import CircleIcon from '@mui/icons-material/Circle';
 import DateRangeRoundedIcon from '@mui/icons-material/DateRangeRounded';
 import ImageListComponent from './ImageListComponent';
 import ImageSlide from './ImageSlide';
 import { useNavigate } from "react-router-dom";
-import { makeStyles, styled } from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 
 type Props = {
     resturent: DataObject[] | undefined;
@@ -55,7 +55,6 @@ const CardComponent: FC<Props> = ({ resturent, loading }) => {
     const navigation = useNavigate()
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
-    const [openTime,setOpenTime] = React.useState<OperationTime|null>(null)
     const style = useStyles()
     const changeName = (num: number) => {
         switch (num) {
@@ -170,7 +169,8 @@ const CardComponent: FC<Props> = ({ resturent, loading }) => {
                                     </Grid>
                                     <Box mt={2}>
                                         {matches ?
-                                            ( //Device Desktop
+                                            ( 
+                                            //Device Desktop
                                                 item.images.length ? <ImageListComponent image={item.images} /> : <Typography sx={{ textAlign: 'center' }} variant="h2">No image</Typography>
                                             ) :
                                             //Device Mobile

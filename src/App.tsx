@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
 import NavBar from './navbar/NavBar';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
@@ -9,9 +7,6 @@ import { Box } from '@mui/material';
 
 
 function App() {
-
- 
-
   return (
     <Router>
       <NavBar />

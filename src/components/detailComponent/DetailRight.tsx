@@ -1,9 +1,8 @@
-import { Box, Card, CardContent, ImageList, ImageListItem, List, ListItem, Typography, useTheme } from '@mui/material'
+import { Card, CardContent, ImageList, ImageListItem, Typography, useTheme } from '@mui/material'
 import React from 'react'
 import { MediaQueryScreen } from '../../constant/MediaQuery';
-import { DataObject } from '../../model/place';
 type Props = {
-    detailData: DataObject;
+    detailData: IRestaurants;
 }
 const DetailRight: React.FC<Props> = ({ detailData}) => {
   return (

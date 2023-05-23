@@ -3,13 +3,14 @@ import React from 'react'
 import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 import { makeStyles, } from '@mui/styles';
 import { useNavigate, useParams } from 'react-router-dom';
-import { DataObject } from '../model/place'
 import DetailLeft from '../components/detailComponent/DetailLeft';
 import { Theme } from '@mui/system';
 import DetailRight from '../components/detailComponent/DetailRight';
 import { MediaQueryScreen } from '../constant/MediaQuery';
-import { useSelector } from 'react-redux';
 import { Tab, TabPanel, Tabs, TabsList } from '@mui/base';
+import MainContent from '../components/MainContent';
+import { useAppSelector } from '../Redux/hook';
+import { RootState } from '../Redux/Store';
 
 const useChipStyles = makeStyles((theme: Theme) => ({
   chip: {
@@ -47,21 +48,18 @@ const RestaurentsDetail = () => {
   const style = useChipStyles()
   const navigation = useNavigate()
   const param = useParams()
-  const [value, setValue] = React.useState('1');
-  const { loading, error, restaurant } = useSelector((state: any) => state.Restaurant)
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue);
-  };
-  const detailData: DataObject | any = restaurant?.find((item: DataObject) => item.id === Number(param.id) || item.id === param.id)
+  const { restaurants } = useAppSelector((state: RootState) => state.Restaurant);
+
+
+  console.log(param.id)
+  const detailData: IRestaurants = restaurants.find((item: IRestaurants) => item.id === Number(param.id)) as IRestaurants
+  console.log(detailData)
   if (!detailData) {
     navigation('/')
   }
+
   return (
-    <Box sx={{
-      marginTop: 3,
-      paddingLeft: { md: "120px", sm: "13px", xs: "13px" },
-      paddingRight: { md: "35px", sm: "13px", xs: "13px" }
-    }}>
+    <MainContent>
       <Button onClick={() => navigation('/')} className={style.chip} variant="contained" startIcon={<ArrowBackIosRoundedIcon />} sx={{ borderRadius: 30, backgroundColor: '#134B8A', color: '#fff', fontWeight: 600 }} >
         Back
       </Button>
@@ -132,7 +130,7 @@ const RestaurentsDetail = () => {
           </Grid>
         </Box>
       </Box>
-    </Box>
+    </MainContent>
   )
 }
 

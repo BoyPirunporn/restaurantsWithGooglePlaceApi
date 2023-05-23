@@ -1,11 +1,10 @@
-import { DataObject } from "../../model/place"
 
 interface REQUEST {
     type: 'REQUEST',
 }
 interface SUCCESS {
     type: 'SUCCESS',
-    payload: DataObject[]
+    payload: IRestaurants[]
 }
 interface FAIL {
     type: 'FAIL',

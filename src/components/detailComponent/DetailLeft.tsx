@@ -1,12 +1,11 @@
 import { Box, Card, CardContent, CardMedia, Grid,  Theme, Typography } from '@mui/material'
 import { useTheme } from '@mui/styles';
-import { makeStyles, styled } from '@mui/styles';
-import React,{FC} from 'react'
+import { makeStyles } from '@mui/styles';
+import {FC} from 'react'
 import { MediaQueryScreen } from '../../constant/MediaQuery';
-import { DataObject, OperationTime } from '../../model/place'
 
 type Props = {
-    detailData: DataObject;
+    detailData: IRestaurants;
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -69,7 +68,7 @@ const DetailLeft: FC<Props> = ({ detailData }) => {
                         </Grid>
                         <Grid item sm={12} md={8} xs={12}  className={classed.textContainer}>
                             {
-                                detailData?.operation_time.map((item: OperationTime, index: number) => {
+                                detailData?.operation_time.map((item: IOperationTime, index: number) => {
                                     return (
                                         <Typography key={index.toString()}  gutterBottom component="div">
                                             {item.day} : {item.time_open !== 'closed' && item.time_close !== 'close' ? `${item.time_close} AM - ${item.time_close } PM`:'Closed'} 
