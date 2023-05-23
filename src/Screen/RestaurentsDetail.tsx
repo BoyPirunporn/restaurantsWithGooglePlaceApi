@@ -3,15 +3,13 @@ import React from 'react'
 import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 import { makeStyles, } from '@mui/styles';
 import { useNavigate, useParams } from 'react-router-dom';
-import data from '../example_data.json';
 import { DataObject } from '../model/place'
-import TabsUnstyled from '@mui/base/TabsUnstyled';
 import DetailLeft from '../components/detailComponent/DetailLeft';
 import { Theme } from '@mui/system';
 import DetailRight from '../components/detailComponent/DetailRight';
-import { Tab, TabPanel, TabsList } from '../components/TapListComponent/TapElements';
 import { MediaQueryScreen } from '../constant/MediaQuery';
 import { useSelector } from 'react-redux';
+import { Tab, TabPanel, Tabs, TabsList } from '@mui/base';
 
 const useChipStyles = makeStyles((theme: Theme) => ({
   chip: {
@@ -59,7 +57,11 @@ const RestaurentsDetail = () => {
     navigation('/')
   }
   return (
-    <Box >
+    <Box sx={{
+      marginTop: 3,
+      paddingLeft: { md: "120px", sm: "13px", xs: "13px" },
+      paddingRight: { md: "35px", sm: "13px", xs: "13px" }
+    }}>
       <Button onClick={() => navigation('/')} className={style.chip} variant="contained" startIcon={<ArrowBackIosRoundedIcon />} sx={{ borderRadius: 30, backgroundColor: '#134B8A', color: '#fff', fontWeight: 600 }} >
         Back
       </Button>
@@ -70,14 +72,53 @@ const RestaurentsDetail = () => {
         borderRadius: 50,
         marginTop: 3,
       }}>
-        <TabsUnstyled defaultValue={0}  >
-          <TabsList>
-            <Tab style={{ textTransform: 'uppercase', }}>Information</Tab>
-            <Tab style={{ textTransform: 'uppercase', }}>Image</Tab>
-          </TabsList>
-          <TabPanel value={0}><DetailLeft detailData={detailData} /></TabPanel>
-          <TabPanel value={1}><DetailRight detailData={detailData} /></TabPanel>
-        </TabsUnstyled>
+        <Box component={Tabs}
+          sx={{
+            '& div > button': {
+              color: '#134B8A',
+              cursor: 'pointer',
+              fontSize: '0.875rem',
+              fontWeight: 'bold',
+              backgroundColor: 'transparent',
+              width: '100%',
+              padding: '10px',
+              border: 'none',
+              borderRadius: '30px',
+              display: 'flex',
+              justifyContent: 'center',
+            },
+            '& div > button.Mui-selected': {
+              backgroundColor: "#134B8A",
+              color: "#fff"
+            },
+            '& div > button.Mui-disabled': {
+              opacity: 0.5,
+              cursor: "not-allowed"
+            },
+          }}
+          defaultValue={0}  >
+          <Box component={TabsList}
+            sx={{
+              minWidth: "320px",
+              backgroundColor: '#fff',
+              marginBottom: '16px',
+              borderRadius: '30px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              alignContent: 'space-between',
+              boxShadow: '0 2px 4px rgb(0,0,0,0.4)',
+            }}
+          >
+            <Box component={Tab} style={{ textTransform: 'uppercase', }}>Information</Box>
+            <Box component={Tab} style={{ textTransform: 'uppercase', }}>Image</Box>
+          </Box>
+          <Box sx={{
+            width: '100%',
+            fontSize: ".875rem"
+          }} component={TabPanel} value={0}><DetailLeft detailData={detailData} /></Box>
+          <Box component={TabPanel} value={1}><DetailRight detailData={detailData} /></Box>
+        </Box>
       </Box>
       <Box className={style.Container}>
         <Box className={style.boxSt}>

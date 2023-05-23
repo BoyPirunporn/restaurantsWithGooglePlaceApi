@@ -40,7 +40,7 @@ const DetailLeft: FC<Props> = ({ detailData }) => {
                 </Box>
                 <Box mt={2}>
                     <Grid container spacing={6}  >
-                        <Grid item sm={12} md={4}  >
+                        <Grid item sm={12} md={4} xs={12}  >
                             <Box>
                                 <Typography sx={{
                                     fontSize: '1.1rem',
@@ -50,7 +50,7 @@ const DetailLeft: FC<Props> = ({ detailData }) => {
                                 </Typography>
                             </Box>
                         </Grid>
-                        <Grid item sm={12} md={8}  className={classed.textContainer}>
+                        <Grid item sm={12} md={8} xs={12}  className={classed.textContainer}>
                             <Box> <Typography component="div">
                                 {detailData?.address}
                             </Typography></Box>
@@ -59,7 +59,7 @@ const DetailLeft: FC<Props> = ({ detailData }) => {
                 </Box>
                 <Box mt={2}>
                     <Grid container spacing={6} >
-                        <Grid item sm={12} md={4} >
+                        <Grid item sm={12} md={4}xs={12}  >
                             <Typography sx={{
                                 fontSize: '1.1rem',
                                 fontWeight: 'bold',

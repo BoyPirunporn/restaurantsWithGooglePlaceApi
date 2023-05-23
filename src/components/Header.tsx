@@ -1,23 +1,38 @@
-import { Alert, Box, FormControl,  Grid, IconButton, InputBase, MenuItem,  Select,  Typography, useMediaQuery, useTheme } from '@mui/material'
+import { Alert, Box, FormControl, Grid, IconButton, InputBase, MenuItem, Select, Typography, useMediaQuery, useTheme } from '@mui/material'
 import Paper from '@mui/material/Paper';
 import React, { Dispatch, SetStateAction, useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 
 type Props = {
-    handleChange:(text:string) => void;
-    handleClick:() => void;
-    value:string;
-    setValue:Dispatch<SetStateAction<string>>
-    setSearchText:Dispatch<SetStateAction<string>>
-    SearchText:string
+    handleChange: (text: string) => void;
+    handleClick: () => void;
+    value: string;
+    setValue: Dispatch<SetStateAction<string>>
+    setSearchText: Dispatch<SetStateAction<string>>
+    SearchText: string
 }
-export const Header: React.FC<Props> = ({ handleChange, value, setValue, SearchText, setSearchText, handleClick}) => {
+export const Header: React.FC<Props> = ({ handleChange, value, setValue, SearchText, setSearchText, handleClick }) => {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down('md'));
-   
+
     return (
-        <Box >
-            <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Box sx={{
+            position: "static",
+            paddingBottom:"15px",
+            backgroundColor: "#E5E5E5",
+        }}>
+            <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                sx={{
+                    marginTop: 3, paddingLeft: {
+                        md: "120px",
+                        sm: "13px",
+                        xs: "13px",
+                    }, paddingRight: {
+                        md: "35px",
+                        sm: "13px",
+                        xs: "13px"
+                    }
+                }}>
                 <Grid item xs={12} md={8}>
                     <Typography variant={matches ? 'h4' : 'h6'} style={{ fontWeight: '600' }} >Place List</Typography>
                 </Grid>
@@ -39,13 +54,13 @@ export const Header: React.FC<Props> = ({ handleChange, value, setValue, SearchT
                                     </Select>
                                 </FormControl>
                             </Grid>
-                            <Grid item xs={12} md={1} mt={1} sx={{ display: matches ?'none' : 'flex', justifyContent: 'center', alignItems:'center' }}>
-                                <Box sx={{color: '#134B8A'}}>|</Box>
+                            <Grid item xs={12} md={1} mt={1} sx={{ display: matches ? 'none' : 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                <Box sx={{ color: '#134B8A' }}>|</Box>
                             </Grid>
                             <Grid item xs={12} md={6} mt={1}>
                                 <Paper
                                     component="div"
-                                    sx={{display: 'flex', alignItems: 'center', width: '100%', borderRadius: 30, background: 'none', boxShadow: 'none', border: '1px solid #134B8A' }}
+                                    sx={{ display: 'flex', alignItems: 'center', width: '100%', borderRadius: 30, background: 'none', boxShadow: 'none', border: '1px solid #134B8A' }}
                                 >
                                     <InputBase
                                         value={SearchText}
@@ -54,7 +69,7 @@ export const Header: React.FC<Props> = ({ handleChange, value, setValue, SearchT
                                         onChange={(e) => setSearchText(e.target.value)}
                                     />
                                     <IconButton type="submit" sx={{ p: '10px' }} aria-label="search" onClick={handleClick} >
-                                        <SearchIcon  />
+                                        <SearchIcon />
                                     </IconButton>
                                 </Paper>
                             </Grid>

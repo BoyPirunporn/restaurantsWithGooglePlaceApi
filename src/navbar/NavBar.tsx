@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Avatar from '@mui/material/Avatar';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { Stack, Theme, } from '@mui/material';
+import {  Theme, } from '@mui/material';
 import { MediaQueryScreen } from '../constant/MediaQuery';
 import CircleIcon from '@mui/icons-material/Circle';
 
@@ -11,7 +11,7 @@ import { useTheme } from '@mui/material/styles';
 import ListIcon from '@mui/icons-material/List';
 import { KeyboardArrowDown } from '@mui/icons-material';
 import { Box, Typography } from '@mui/material'
-import logo from '../image/logo.png'
+import logo from '../logo.svg'
 import { makeStyles } from '@mui/styles';
 
 const styles = makeStyles((theme: Theme) => ({

@@ -1,18 +1,17 @@
-import { Alert, Box, Pagination, Stack, useMediaQuery, useTheme } from '@mui/material'
+import { Alert, Box, Stack } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import CardComponent from '../components/CardComponent'
-import { DataObject, OperationTime } from '../model/place'
+import { DataObject } from '../model/place'
 import { Header } from '../components/Header'
-import SideBar from '../navbar/NavBar'
 import data from '../example_data.json';
-import { MediaQueryScreen } from '../constant/MediaQuery'
-import { placeRestaurant } from '../service/Place'
 import { useDispatch, useSelector } from 'react-redux'
-import { actionRestaurant, actionRestaurantMock, actionSearchName } from '../Redux/Action/actionRestaurant'
+import { actionRestaurantMock, actionSearchName } from '../Redux/Action/actionRestaurant'
 import PaginationComponent from '../components/Pagination'
-
+import { MediaQueryScreen } from '../constant/MediaQuery';
+import { useTheme, createTheme, ThemeProvider } from '@mui/material/styles';
 
 const HomeScreen = () => {
+  const theme = useTheme()
   const Restaurent: DataObject[] = data;
   const [Restaurens, setRestaurens] = useState<DataObject[]>(Restaurent);
   const [value, setvalue] = useState<string>('restaurant')
@@ -25,26 +24,26 @@ const HomeScreen = () => {
   const handleChange = (val: string) => {
     setvalue(val)
     setSearchText('')
-    dispatch(actionRestaurantMock(val))
+    dispatch<any>(actionRestaurantMock(val))
   }
-  
+
   const handleClick = () => {
-    dispatch(actionSearchName(searchText))
+    dispatch<any>(actionSearchName(searchText))
   }
   useEffect(() => {
     if (restaurant !== undefined) {
       setRestaurens(restaurant)
     }
 
-  }, [value, dispatch, restaurant, ])
+  }, [value, dispatch, restaurant,])
   const indexOfLastPage = currentPage * itemPage
   const indexOfFirstPage = indexOfLastPage - itemPage
   const currentOfPage = Restaurens?.slice(indexOfFirstPage, indexOfLastPage)
-  
-  
+
+
   return (
-    <Box  >
-      <Box >
+    <Box>
+      <Box position={"sticky"} zIndex={99} top={"55px"} >
         <Header
           handleChange={handleChange}
           handleClick={handleClick}
@@ -53,7 +52,10 @@ const HomeScreen = () => {
           value={value}
           setValue={setvalue} />
         {error ? <Alert sx={{ marginTop: 1 }} severity="error">{error}</Alert> : <></>}
-     </Box>
+      </Box>
+
+      <Box  sx={{ marginTop: 3, paddingLeft: MediaQueryScreen(theme) ? '120px' : '13px', paddingRight: MediaQueryScreen(theme) ? '35px' : '13px', }}>
+      
       <Box sx={{ marginTop: 3 }} >
         <Stack spacing={2}>
           <CardComponent loading={loading} resturent={currentOfPage} />
@@ -66,6 +68,8 @@ const HomeScreen = () => {
           setCurrentPage={setCurrentPage} />
       </Box>
     </Box>
+    </Box>
+
   )
 }
 
