@@ -1,41 +1,43 @@
-# PROJECT RESTAURANT WITH GOOGLE PLACE API
+## 🍽️ Restaurant Finder  
 
- `npm install` หรือ `yarn install` เพื่อติดตั้ง package ที่จำเป็น จากนั้น Run คำสั่ง `npm start` หรือ `yarn start`
-ในการรัน project
+A modern and user-friendly restaurant searching application built with TypeScript and Material UI. Easily find restaurants by keyword or category and explore their details at a glance. The app searches for restaurants within a 5-kilometer radius, allowing users to filter by name or type, such as Restaurant, Bakery, or Cafe.
 
-# RESPONSIVE UI WITH MATERIAL UI , REDUX
+### 🚀 Features  
+- 🔍 **Search** restaurants using keywords or categories  
+- 📋 **List View** of matching restaurants with essential details  
+- 🏠 **Detailed View** with images, opening hours, location, and ratings  
+- 🎨 **UI/UX Design** powered by **Material UI** for a sleek experience  
+- ⚡ **Built with TypeScript** for enhanced performance and maintainability  
 
-# THIS PROJECT
-It is a search and display of a list of restaurants within a radius of 5 kilometers from 
-You can find restaurants by searching. Restaurant name or type such as`Restaurant , Bakery, Cafe`;
-# โปรเจกต์ระบบค้นหาร้านอาหาร
+### 📸 Preview  
+![Restaurant Finder Preview](assets/images/restaurant-finder.png)  
 
-## คำอธิบาย
+### 🛠️ Technologies Used  
+- **Frontend:** React, TypeScript, Material UI  
+- **Backend:** Node.js, Express  
+- **Database:** MongoDB (or replace with your database)  
 
-โปรเจกต์นี้เป็นเว็บแอปพลิเคชันที่ช่วยในการค้นหาร้านอาหารรอบๆ รัศมี 5 กิโลเมตร โดยมีคุณสมบัติหลักคือการค้นหาร้านอาหารตามชื่อหรือประเภทของร้านอาหารที่ต้องการ
-`lat: 13.779820829768585` `long: 100.54464812602707`
+### 🔧 Installation  
+1. Clone the repository:  
+   ```sh  
+   git clone https://github.com/your-username/restaurant-finder.git  
+   ```  
+2. Navigate to the project folder:  
+   ```sh  
+   cd restaurant-finder  
+   ```  
+3. Install dependencies:  
+   ```sh  
+   npm install  
+   ```  
+4. Start the development server:  
+   ```sh  
+   npm run dev  
+   ```  
 
-## คุณสมบัติ
+### 📌 Contribution  
+Feel free to contribute! Fork the repository, make your changes, and submit a pull request. 😊  
 
-- ค้นหาร้านอาหารโดยใช้คำค้นหาหรือประเภทของร้านอาหาร
-- แสดงรายชื่อร้านอาหารทั้งหมดที่ตรงกับเงื่อนไขการค้นหา
-- แสดงรายละเอียดของแต่ละร้านอาหาร เช่น รูปภาพ, เวลาเปิด-ปิด, ที่อยู่, และคะแนน
-- ออกแบบ UI/UX โดยใช้ Material UI เพื่อความสวยงามและความใช้งานง่าย
-- ใช้ TypeScript เพื่อเพิ่มประสิทธิภาพและความเป็นไปได้ในการพัฒนา
+### 📄 License  
+This project is licensed under the MIT License.  
 
-## เทคโนโลยีที่ใช้
-
-- React: สำหรับพัฒนาเว็บแอปพลิเคชัน
-- Material UI: เพื่อออกแบบ UI/UX และสร้างคอมโพเนนต์
-- React Redux: จัดการสถานะแอปพลิเคชัน
-- TypeScript: เพื่อเพิ่มประสิทธิภาพในการพัฒนาและการจัดการข้อมูล
-
-## วิธีการใช้งาน
-
-1. Clone repository
-2. Install dependencies: `npm install` or `yarn install`
-3. Start application: `npm start` or `yarn start`
-
-## การพัฒนาเพิ่มเติม
-
-สามารถ fork โปรเจกต์และสร้าง pull request เพื่อเพิ่มฟีเจอร์หรือแก้ไขข้อผิดพลาดได้ตามต้องการ
