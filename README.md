@@ -14,8 +14,6 @@ A modern and user-friendly restaurant searching application built with TypeScrip
 
 ### 🛠️ Technologies Used  
 - **Frontend:** React, TypeScript, Material UI  
-- **Backend:** Node.js, Express  
-- **Database:** MongoDB (or replace with your database)  
 
 ### 🔧 Installation  
 1. Clone the repository:  
