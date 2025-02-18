@@ -10,7 +10,8 @@ A modern and user-friendly restaurant searching application built with TypeScrip
 - ⚡ **Built with TypeScript** for enhanced performance and maintainability  
 
 ### 📸 Preview  
-![Restaurant Finder Preview](assets/images/restaurant-finder.png)  
+<img src="public/assets/screen.png" width="500" height="auto" />
+
 
 ### 🛠️ Technologies Used  
 - **Frontend:** React, TypeScript, Material UI  
