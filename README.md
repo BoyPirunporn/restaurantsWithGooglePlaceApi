@@ -19,11 +19,11 @@ A modern and user-friendly restaurant searching application built with TypeScrip
 ### 🔧 Installation  
 1. Clone the repository:  
    ```sh  
-   git clone https://github.com/your-username/restaurant-finder.git  
+   git clone https://github.com/boypirunporn/restaurantsWithGooglePlaceApi.git  
    ```  
 2. Navigate to the project folder:  
    ```sh  
-   cd restaurant-finder  
+   cd restaurantsWithGooglePlaceApi  
    ```  
 3. Install dependencies:  
    ```sh  
