@@ -34,9 +34,3 @@ A modern and user-friendly restaurant searching application built with TypeScrip
    npm run dev  
    ```  
 
-### 📌 Contribution  
-Feel free to contribute! Fork the repository, make your changes, and submit a pull request. 😊  
-
-### 📄 License  
-This project is licensed under the MIT License.  
-
